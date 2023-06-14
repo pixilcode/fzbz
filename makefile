@@ -11,6 +11,15 @@ c: build-dir
 run-c: c
 	./build/fzbz-c
 
+# ocaml build
+ocaml: build-dir
+	ocamlbuild -pkg unix ocaml/main.native -build-dir build
+	mv build/ocaml/main.native build/fzbz-ocaml
+	rm -r build/ocaml build/ocamlc.where
+
+run-ocaml: ocaml
+	./build/fzbz-ocaml
+
 # ensure the build directory exists
 build-dir:
 	mkdir -p build
