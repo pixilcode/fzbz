@@ -29,7 +29,7 @@ int read_fizzbuzz_file(char* fizzbuzz_path);
 int read_int_from_file(FILE* file);
 void run_fizzbuzz(int counter);
 int write_fizzbuzz_file(char* fizzbuzz_path, int counter);
-void print_error();
+void print_error(char* msg);
 
 /**
  * The default value when errors occur getting the current fizzbuzz value
@@ -45,7 +45,7 @@ int main() {
     // if the $HOME env variable isn't set
     // print error and quit early
     if (fizzbuzz_path == NULL) {
-        print_error(stderr, "error: $HOME environment variable isn't set");
+        print_error("error: $HOME environment variable isn't set");
         return EXIT_FAILURE;
     }
 
